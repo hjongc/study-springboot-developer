@@ -16,6 +16,7 @@ import java.util.List;
 @Getter
 @Entity
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
@@ -27,10 +28,20 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "nickname", unique = true)
+    private String nickname;
+
     @Builder
-    public User(String email, String password, String auth) {
+    public User(String email, String password, String nickname) {
         this.email = email;
         this.password = password;
+        this.nickname = nickname;
+    }
+
+    public User update(String nickname) {
+        this.nickname = nickname;
+
+        return this;
     }
 
     @Override
@@ -71,4 +82,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true; // true -> 사용가능
     }
+
+
 }

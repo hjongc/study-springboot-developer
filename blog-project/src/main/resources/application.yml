@@ -9,14 +9,26 @@ spring:
     # 테이블 생성 후에 data.sql 실행
     defer-datasource-initialization: true
 
-  datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
+# AWS 사용할 것이므로
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    username: sa
 
   h2:
     console:
       enabled: true
 
-  jwt:
-    issuer: ajufresh@gmail.com
-    secret_key: study-springboot
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id:
+            client-secret:
+            scope:
+              - email
+              - profile
+
+jwt:
+  issuer: ajufresh@gmail.com
+  secret_key: study-springboot
