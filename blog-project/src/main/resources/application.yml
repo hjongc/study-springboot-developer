@@ -20,6 +20,3 @@ spring:
 
   profiles:
     include: secret
-
-profiles:
-  include: jwt
