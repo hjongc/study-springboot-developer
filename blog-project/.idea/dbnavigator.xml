@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -12,9 +12,37 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="cb92496f-a0f5-457d-9329-5656a986caa9">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
-      <console name="Connection 1" type="STANDARD" schema="ebdb" session="Main"><![CDATA[CREATE DATABASE IF NOT EXISTS blog;
+    <connection id="ec7dff6f-2e33-448c-ae7a-684df0b396d1">
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[CREATE DATABASE IF NOT EXISTS blog;
+USE blog;
+
+CREATE TABLE IF NOT EXISTS article (
+    id bigint not null AUTO_INCREMENT,
+    author varchar(255) not null,
+    content varchar(255) not null,
+    create_at timestamp,
+    title varchar(255) not null,
+    updated_at timestamp,
+    primary key (id)
+);
+
+CREATE TABLE IF NOT EXISTS refresh_token (
+    id bigint not null AUTO_INCREMENT,
+    refresh_token varchar(255) not null,
+    user_id bigint not null,
+    primary key (id)
+);
+
+CREATE TABLE IF NOT EXISTS users (
+    id bigint not null AUTO_INCREMENT,
+    create_at timestamp,
+    email varchar(255) not null,
+    nickname varchar(255),
+    password varchar(255),
+    updated_at timestamp,
+    primary key (id)
+);]]></console>
+      <console name="Connection 1" type="STANDARD" schema="blog" session="Main"><![CDATA[CREATE DATABASE IF NOT EXISTS blog;
 USE blog;
 
 CREATE TABLE IF NOT EXISTS article (
@@ -67,11 +95,13 @@ CREATE TABLE IF NOT EXISTS users (
     <filters />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces />
+    <recently-used-interfaces>
+      <mapping database-type="MYSQL" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="cb92496f-a0f5-457d-9329-5656a986caa9" active="true" signed="true">
+      <connection id="ec7dff6f-2e33-448c-ae7a-684df0b396d1" active="true" signed="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -82,9 +112,9 @@ CREATE TABLE IF NOT EXISTS users (
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="awseb-e-mh5ekpzr22-stack-awsebrdsdatabase-9nbvconel52i.crzsw4ddexbf.ap-northeast-2.rds.amazonaws.com" />
+          <host value="awseb-e-2rgzdeajsz-stack-awsebrdsdatabase-hgq28qrpu3ca.crzsw4ddexbf.ap-northeast-2.rds.amazonaws.com" />
           <port value="3306" />
-          <database value="" />
+          <database value="blog" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
