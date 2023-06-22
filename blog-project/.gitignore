@@ -38,6 +38,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-
+add
 ### Google Client Kye###
 src/main/resources/application-secret.yml
