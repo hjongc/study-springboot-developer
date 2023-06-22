@@ -18,18 +18,8 @@ spring:
     console:
       enabled: true
 
-#  profiles:
-#    include: secret
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 985335857346-34pqastkrn7ubbaq4l60hv3bm20nc0hj.apps.googleusercontent.com
-            client-secret: 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
-            scope:
-              - email
-              - profile
+  profiles:
+    include: secret
 
 jwt:
   issuer: chj7785@gmail.com
