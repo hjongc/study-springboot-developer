@@ -1,12 +1,11 @@
 .gradle/
 build/
-.idea/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
-.idea/
+.idea
 *.iws
 *.iml
 *.ipr
@@ -38,6 +37,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-add
-### Google Client Kye###
-src/main/resources/application-secret.yml
+
+### secret info ###
+/src/main/resources/application-jwt.yml
+/src/main/resources/application-secret.yml
