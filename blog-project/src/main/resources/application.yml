@@ -21,6 +21,5 @@ spring:
   profiles:
     include: secret
 
-jwt:
-  issuer: chj7785@gmail.com
-  secret_key: study-springboot
+profiles:
+  include: jwt
