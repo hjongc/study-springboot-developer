@@ -41,4 +41,4 @@ jobs:
           environment_name: Blog-project-env
           version_label: github-action-${{steps.current-time.outputs.formattedTime}}
           region: ap-northeast-2
-          deployment_package: .blog-project/build/libs/${{env.artifact}}
+          deployment_package: ./blog-project/build/libs/${{env.artifact}}
